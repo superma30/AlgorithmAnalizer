@@ -1,6 +1,20 @@
 #include <iostream>
 
+/* mathplotlib-cpp
+ * stats:
+ * iterations
+ * swaps
+ * time
+ *
+ * - SINGLE
+ *     stats
+ *     graphs
+ *
+ * - COMPARE
+ *     stats
+ */
+
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+
     return 0;
 }
