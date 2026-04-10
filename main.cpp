@@ -1,6 +1,8 @@
 #include <iostream>
 #include <conio.h>
+#ifdef USE_PYTHON
 #include "matplotlibcpp.h"
+#endif
 #include "Algorithms.cpp"
 
 /* mathplotlib-cpp
@@ -139,6 +141,7 @@ void SingleMode() {
         timeData.push_back((double)stats[2] * timeScale); // time
     }
 
+#ifdef USE_PYTHON
     matplotlibcpp::figure_size(900, 600);
 
     matplotlibcpp::named_plot("Iterations", sizes, iterData);
@@ -151,6 +154,9 @@ void SingleMode() {
 
     matplotlibcpp::legend();
     matplotlibcpp::show();
+#else
+    std::cout << "\n[Warning] Python not available. Skipping graph generation.\n";
+#endif
 }
 
 void CompareMode() {
@@ -239,6 +245,7 @@ void CompareMode() {
     }
 
     // Graphs
+#ifdef USE_PYTHON
     matplotlibcpp::figure_size(900, 600);
 
     matplotlibcpp::named_plot(Algorithm::GetAlgorithmName((Algorithm::AlgorithmNames)a), sizes, dataA);
@@ -256,4 +263,7 @@ void CompareMode() {
 
     matplotlibcpp::legend();
     matplotlibcpp::show();
+#else
+    std::cout << "\n[Warning] Python not available. Skipping graph generation.\n";
+#endif
 }
